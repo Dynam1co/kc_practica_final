@@ -5,9 +5,13 @@ $ docker build -t eg_postgresql .
 ```
 Este comando nos habrá generado una imagen llamada **eg_postgresql**
 
-Con este comando creamos un nuevo contenedor a partir de la nueva imagen (o lo arrancará si ya lo tenemos creado):
+Con este comando creamos un nuevo contenedor a partir de la nueva imagen (si ya lo tenemos creado, solo habrá que arrancarlo, saltar al siguiente paso):
 ```
 $ docker run -P --name pg_test eg_postgresql
+```
+Arrancar contenedor pg_test:
+```
+$ docker start pg_test
 ```
 Este comando dejará en ejecución el entorno de Postgre, abrimos una nueva terminal y nos conectamos al bash del contenedor **eg_postgresql** con el siguiente comando:
 ```
