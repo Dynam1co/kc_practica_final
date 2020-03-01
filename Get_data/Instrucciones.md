@@ -1,5 +1,5 @@
 # Descarga de datos TMDb
-En esta parte descargaremos los datos necesarios usando la API de [TMDb](https://www.themoviedb.org/documentation/api?language=es) y los insertaremos en la base de datos Postgre SQL que creamos en el [apartado anterior](DDBB/DDBB.md).
+En esta parte descargaremos los datos necesarios usando la API de [TMDb](https://www.themoviedb.org/documentation/api?language=es) y los insertaremos en la base de datos Postgre SQL que creamos en el [apartado anterior](https://raw.githubusercontent.com/Dynam1co/kc_practica_final/master/DDBB/DDBB.md?token=ACOEK7HKQEOSHIJNPWWVNV26MVJI6).
 
 ## Librerías Python usadas 🛠️
 - **psycopg2**: Python-PostgreSQL Database Adapter [Fuente](https://pypi.org/project/psycopg2/)
