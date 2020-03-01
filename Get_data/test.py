@@ -1,22 +1,28 @@
 import psycopg2
+import sys
 
-#connection = psycopg2.connect("dbname='db_practica_kc' user='fjasensi' host='localhost' password='passPractica'")
-connection = psycopg2.connect(
-    user = 'fjasensi',
-    password='passPractica',
-    host='localhost',
-    port='5432',
-    database='db_practica_kc'
-)
+sys.path.insert(1, "./DDBB/")
+import config
 
+def conectar():
+    connection = None
 
-cursor = connection.cursor()
+    try:
+        connection = config.get_connection_by_config()
 
-cursor.execute('SELECT * FROM pelicula;')
-record = cursor.fetchone()
-print(record)
+        cursor = connection.cursor()
 
-if(connection):
-    cursor.close()
-    connection.close()
-    print("PostgreSQL connection is closed")
+        cursor.execute('SELECT * FROM pelicula;')
+        record = cursor.fetchone()
+        print(record)
+    except (Exception, psycopg2.Error) as error:
+        print ("Error while connecting to PostgreSQL", error)
+    finally:
+        #closing database connection.
+        if(connection):
+            cursor.close()
+            connection.close()
+            print("PostgreSQL connection is closed")
+
+if __name__ == '__main__':
+    conectar()
