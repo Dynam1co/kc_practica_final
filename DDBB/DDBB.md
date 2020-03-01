@@ -5,17 +5,17 @@ $ docker build -t eg_postgresql .
 ```
 Este comando nos habrá generado una imagen llamada **eg_postgresql**
 
-Con este comando creamos un nuevo contenedor a partir de la nueva imagen (si ya lo tenemos creado, solo habrá que arrancarlo, saltar al siguiente paso):
+Con este comando creamos un nuevo contenedor a partir de la nueva imagen (si ya lo tenemos creado, solo habrá que arrancarlo, saltar al siguiente paso) indicamos que redirija el puerto por defecto de Posgres (5432) de nuestra máquina local, al puerto de Postgres del contenedor:
 ```
-$ docker run -P --name pg_test eg_postgresql
+$ docker run -i -p 5432:5432 --name pruebaPython eg_postgresql
 ```
 Arrancar contenedor **pg_test** (no ejecutar si no teníamos creado el contenedor previamente):
 ```
-$ docker start pg_test
+$ docker start pruebaPython
 ```
 Este comando dejará en ejecución el entorno de Postgre, abrimos una nueva terminal y nos conectamos al bash del contenedor **eg_postgresql** con el siguiente comando:
 ```
-$ docker run --rm -t -i --link pg_test:pg eg_postgresql bash
+$ docker run --rm -t -i --link pruebaPython:pg eg_postgresql bash
 ```
 Una vez ya conectados al bash del contenedor, abrimos el cliente de Postgres y nos conectamos directamente a la base de datos que creamos en el Dockerfile **db_practica_kc** con el siguiente comando:
 ```
