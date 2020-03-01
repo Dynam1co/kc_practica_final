@@ -1,5 +1,7 @@
 import psycopg2
 import sys
+import os
+from dotenv import load_dotenv
 
 sys.path.insert(1, "./DDBB/")
 import config
@@ -24,5 +26,12 @@ def conectar():
             connection.close()
             print("PostgreSQL connection is closed")
 
+def variableEntornoAPI():    
+    load_dotenv()
+    
+    if not os.getenv('API_KEY_TMDB'):
+        raise Exception('No encontrada API KEY TMDB')
+
 if __name__ == '__main__':
     conectar()
+    variableEntornoAPI()
