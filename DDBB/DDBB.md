@@ -9,7 +9,7 @@ Con este comando creamos un nuevo contenedor a partir de la nueva imagen (si ya 
 ```
 $ docker run -i -p 5432:5432 --name pruebaPython eg_postgresql
 ```
-Arrancar contenedor **pg_test** (no ejecutar si no teníamos creado el contenedor previamente):
+Arrancar contenedor **pruebaPython** (no ejecutar si no teníamos creado el contenedor previamente):
 ```
 $ docker start pruebaPython
 ```
