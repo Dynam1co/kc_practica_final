@@ -1,6 +1,7 @@
 from configparser import ConfigParser
 import psycopg2
 
+
 def get_connection_by_config(archivo='./DDBB/base_de_datos.ini', seccion='postgresql'):
     # Crear el parser y leer el archivo
     parser = ConfigParser()
