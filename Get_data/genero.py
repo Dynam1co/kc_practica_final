@@ -21,8 +21,18 @@ class Genero:
 
             cursor = connection.cursor()
 
-            sql = "INSERT INTO genre (id, name, type) VALUES (%s, %s, %s);"
-            data = (self.id, self.name, self.type)
+            sql = """
+                DO
+                    $do$
+                        BEGIN
+                            IF NOT EXISTS (SELECT * FROM genre WHERE id = %s AND type = %s) THEN
+                                INSERT INTO genre (id, name, type) VALUES (%s, %s, %s);
+                            end if;
+                        END
+                    $do$
+            """
+
+            data = (self.id, self.type, self.id, self.name, self.type)
 
             cursor.execute(sql, data)
         except (Exception, psycopg2.Error) as error:
