@@ -10,11 +10,10 @@ def conectar():
     connection = None
 
     try:
-        connection = config.get_connection_by_config()
-
+        connection = config.get_connection_by_config()        
         cursor = connection.cursor()
 
-        cursor.execute('SELECT * FROM pelicula;')
+        cursor.execute('SELECT * FROM genre;')
         record = cursor.fetchone()
         print(record)
     except (Exception, psycopg2.Error) as error:

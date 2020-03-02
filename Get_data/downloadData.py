@@ -1,12 +1,13 @@
 import todo
 from itemCatalogo import ItemCatalogo
+from genero import Genero
 
 
 def descargaPeliculas(pPagina=1):
     resp = todo.get_movie_popular()
 
     if resp.status_code != 200:
-        raise ApiError('Cannot fetch movies: {}'.format(resp.status_code))
+        raise Exception('Cannot fetch movies: {}'.format(resp.status_code))
 
     fichero_json = resp.json()
 
@@ -33,8 +34,34 @@ def descargaPeliculas(pPagina=1):
         for genre in result['genre_ids']:
             item.insertGenreId(genre)
 
-        print(item)
+
+def descargaGenerosPeliculas():
+    resp = todo.get_genres_movies()
+
+    if resp.status_code != 200:
+        raise Exception('Cannot fetch movies: {}'.format(resp.status_code))
+
+    fichero_json = resp.json()
+
+    for item in fichero_json['genres']:
+        miGenero = Genero('Movie', item['id'], item['name'])
+        miGenero.insertar()
+
+
+def descargaGenerosSeries():
+    resp = todo.get_genres_tv()
+
+    if resp.status_code != 200:
+        raise Exception('Cannot fetch movies: {}'.format(resp.status_code))
+
+    fichero_json = resp.json()
+
+    for item in fichero_json['genres']:
+        miGenero = Genero('TV', item['id'], item['name'])
+        miGenero.insertar()
 
 
 if __name__ == '__main__':
     descargaPeliculas()
+    descargaGenerosPeliculas()
+    descargaGenerosSeries()
