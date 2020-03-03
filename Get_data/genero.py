@@ -42,4 +42,4 @@ class Genero:
             if(connection):
                 cursor.close()
                 connection.commit()
-                connection.close()                
+                connection.close()

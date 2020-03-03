@@ -34,6 +34,8 @@ def descargaPeliculas(pPagina=1):
         for genre in result['genre_ids']:
             item.insertGenreId(genre)
 
+        item.insertar()
+
 
 def descargaGenerosPeliculas():
     resp = todo.get_genres_movies()
