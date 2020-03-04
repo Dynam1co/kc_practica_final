@@ -21,6 +21,12 @@ Los pasos a seguir serán:
 - Creación de las tablas en Postgre SQL.
 - Obtención de datos atacando a la API Rest pública de [TMDb](https://www.themoviedb.org/documentation/api?language=es) usando Python. 📝 [Instrucciones](Get_data/Instrucciones.md)
 
+## Herramientas usadas 🔧
+Estas son las herramientas usadas durante el desarrollo del proyecto:
+- [Docker](https://www.docker.com/): Para el servidor Postgre SQL.
+- [Visual Studio Code](https://code.visualstudio.com/): Como editor de código Python y Jupyter Notebook.
+- [Data Grip](https://www.jetbrains.com/datagrip/?gclid=Cj0KCQiAwP3yBRCkARIsAABGiPp9LUgvaKBbgjd69efrNyAz1KU7Lyoab6hKzCIaSgV2ujDK3i7m5AEaAh6UEALw_wcB): Como IDE de Sql.
+
 ## Expresiones de Gratitud 🎁
 
 * Comenta a otros sobre este proyecto 📢
