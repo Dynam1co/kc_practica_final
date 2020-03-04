@@ -23,8 +23,10 @@ def get_movie_popular(pNumPag=1):
     return requests.get(_url('/movie/popular?api_key=%s&language=en-US&page=%s' % (os.getenv('API_KEY_TMDB'), pNumPag)))
 
 
-def get_tv_popular():
-    pass
+def get_tv_popular(pNumPag=1):
+    load_dotenv()
+
+    return requests.get(_url('/tv/popular?api_key=%s&language=en-US&page=%s' % (os.getenv('API_KEY_TMDB'), pNumPag)))
 
 
 def get_detail_movie():

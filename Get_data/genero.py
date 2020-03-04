@@ -8,8 +8,7 @@ import config
 
 
 class Genero:
-    def __init__(self, pTipo, pId, pNombre):
-        self.type = pTipo
+    def __init__(self, pId, pNombre):
         self.id = pId
         self.name = pNombre
 
@@ -25,14 +24,14 @@ class Genero:
                 DO
                     $do$
                         BEGIN
-                            IF NOT EXISTS (SELECT * FROM genre WHERE id = %s AND type = %s) THEN
-                                INSERT INTO genre (id, name, type) VALUES (%s, %s, %s);
+                            IF NOT EXISTS (SELECT * FROM genre WHERE id = %s) THEN
+                                INSERT INTO genre (id, name) VALUES (%s, %s);
                             end if;
                         END
                     $do$
             """
 
-            data = (self.id, self.type, self.id, self.name, self.type)
+            data = (self.id, self.id, self.name)
 
             cursor.execute(sql, data)
         except (Exception, psycopg2.Error) as error:
