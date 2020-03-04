@@ -17,7 +17,7 @@ La base de datos seleccionada será [Postgre SQL](https://www.postgresql.org/) e
 La idea final del proyecto es poder predecir el éxito que pueda tener una posible película o serie en el mercado americano. Partiremos de un dataset etiquetado que escrapearemos también en este proyecto.
 
 Los pasos a seguir serán:
-- Creación del servidor de base de datos dockerizado con motor Postgre SQL. 📝 [Instrucciones](DDBB/DDBB.md)
+- Creación del servidor de base de datos dockerizado con motor Postgre SQL. 📝 [Instrucciones](DDBB)
 - Creación de las tablas en Postgre SQL.
 - Obtención de datos atacando a la API Rest pública de [TMDb](https://www.themoviedb.org/documentation/api?language=es) usando Python. 📝 [Instrucciones](Get_data/Instrucciones.md)
 
