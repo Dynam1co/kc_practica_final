@@ -15,7 +15,7 @@ API_KEY_TMDB=abcerkd73847
 
 ## Descarga de items e inserción en la base de datos ⚙️
 Dentro de esta carpeta (Get_data) se encuentran los siguientes ficheros:
-- **downloadData.py**: Este fichero es el principal, el que inicia la descarga de todos los datos necesarios. Al tener una función "main" solo habría que ejecutar este fichero de la siguiente forma: ```python downloadData.py``` En la consola veremos en cada momento qué se está descargando.
-- **genero.py**: Es una clase con los atributos de géneros de películas y un método para insertar dichos métodos en la base de datos.
-- **itemCatalogo.py**: Es la clase de la película/serie. Contiene los atributos y un método para insertar en la base de datos.
-- **todo.py**: Este archivo contiene funciones que devuelven la url de cada método de la API.
+- [**downloadData.py**](downloadData.py): Este fichero es el principal, el que inicia la descarga de todos los datos necesarios. Al tener una función "main" solo habría que ejecutar este fichero de la siguiente forma: ```python downloadData.py``` En la consola veremos en cada momento qué se está descargando.
+- [**genero.py**](genero.py): Es una clase con los atributos de géneros de películas y un método para insertar dichos métodos en la base de datos.
+- [**itemCatalogo.py**](itemCatalogo.py): Es la clase de la película/serie. Contiene los atributos y un método para insertar en la base de datos.
+- [**todo.py**](todo.py): Este archivo contiene funciones que devuelven la url de cada método de la API.

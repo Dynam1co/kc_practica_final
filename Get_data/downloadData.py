@@ -57,7 +57,7 @@ def descargaPeliculas(pPagina=1):
     if paginaActual < paginasTotales:
         time.sleep(5)
 
-        print('Descargando página:', paginaActual + 1)
+        print('Descargando página:', paginaActual + 1, 'de', paginasTotales)
 
         descargaPeliculas(paginaActual + 1)
 
@@ -115,7 +115,7 @@ def descargaSeries(pPagina=1):
     if paginaActual < paginasTotales:
         time.sleep(5)
 
-        print('Descargando página:', paginaActual + 1)
+        print('Descargando página:', paginaActual + 1, 'de', paginasTotales)
 
         descargaSeries(paginaActual + 1)
 
