@@ -25,6 +25,7 @@ Los pasos a seguir serán:
 Estas son las herramientas usadas durante el desarrollo del proyecto:
 - [Docker](https://www.docker.com/): Para el servidor Postgre SQL.
 - [Visual Studio Code](https://code.visualstudio.com/): Como editor de código Python y Jupyter Notebook.
+- [Postgre SQL](https://www.postgresql.org/): Como motor de bases de datos.
 - [Data Grip](https://www.jetbrains.com/datagrip/?gclid=Cj0KCQiAwP3yBRCkARIsAABGiPp9LUgvaKBbgjd69efrNyAz1KU7Lyoab6hKzCIaSgV2ujDK3i7m5AEaAh6UEALw_wcB): Como IDE de Sql.
 
 ## Expresiones de Gratitud 🎁
