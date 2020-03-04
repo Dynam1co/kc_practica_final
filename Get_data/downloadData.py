@@ -5,6 +5,10 @@ import time
 
 
 def descargaPeliculas(pPagina=1):
+    print('Descargando películas')
+    print('------------------------------------------')
+    print('')
+
     resp = todo.get_movie_popular(pPagina)
 
     if resp.status_code != 200:
@@ -59,6 +63,10 @@ def descargaPeliculas(pPagina=1):
 
 
 def descargaSeries(pPagina=1):
+    print('Descargando series')
+    print('------------------------------------------')
+    print('')
+
     resp = todo.get_tv_popular(pPagina)
 
     if resp.status_code != 200:
@@ -113,6 +121,10 @@ def descargaSeries(pPagina=1):
 
 
 def descargaGenerosPeliculas():
+    print('Descargando géneros de películas')
+    print('------------------------------------------')
+    print('')
+
     resp = todo.get_genres_movies()
 
     if resp.status_code != 200:
@@ -126,6 +138,10 @@ def descargaGenerosPeliculas():
 
 
 def descargaGenerosSeries():
+    print('Descargando géneros de series')
+    print('------------------------------------------')
+    print('')
+
     resp = todo.get_genres_tv()
 
     if resp.status_code != 200:
@@ -141,5 +157,5 @@ def descargaGenerosSeries():
 if __name__ == '__main__':    
     #descargaGenerosPeliculas()
     #descargaGenerosSeries()
-    descargaPeliculas()
-    descargaSeries()
+    #descargaPeliculas()
+    #descargaSeries()
