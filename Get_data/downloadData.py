@@ -1,7 +1,76 @@
 import todo
 from itemCatalogo import ItemCatalogo
 from genero import Genero
+from prodCompany import ProductionCompany
 import time
+
+
+def descargaProdCompanyPelicula():
+    print('Descargando productoras películas')
+    print('------------------------------------------')
+    print('')
+
+    listaElementos = []
+    tipo = 'Movie'
+
+    # Obtener todas las películas de la BBDD Postgre
+    listaElementos = ItemCatalogo.getAll(tipo)
+    i = 0
+    totalElementos = len(listaElementos)
+
+    # Por cada película obtengo sus productoras atacando a la API
+    for elemento in listaElementos:
+        time.sleep(2)
+
+        i += 1
+        print('Elemento:', i, 'de:', totalElementos)
+
+        resp = todo.get_prod_company_movie(elemento)
+
+        if resp.status_code != 200:
+            raise Exception('Cannot fetch movies: {}'.format(resp.status_code))
+
+        fichero_json = resp.json()
+
+        # Insertar productora en BBDD
+        if 'production_companies' in fichero_json:
+            for compan in fichero_json['production_companies']:
+                miCompania = ProductionCompany(tipo, elemento, compan['id'], compan['name'])
+                miCompania.insertar()
+
+
+def descargaProdCompanySerie():
+    print('Descargando productoras series')
+    print('------------------------------------------')
+    print('')
+
+    listaElementos = []
+    tipo = 'TV'
+
+    # Obtener todas las películas de la BBDD Postgre
+    listaElementos = ItemCatalogo.getAll(tipo)
+    i = 0
+    totalElementos = len(listaElementos)
+
+    # Por cada película obtengo sus productoras atacando a la API
+    for elemento in listaElementos:
+        time.sleep(2)
+
+        i += 1
+        print('Elemento:', i, 'de:', totalElementos)
+
+        resp = todo.get_prod_company_tv(elemento)
+
+        if resp.status_code != 200:
+            raise Exception('Cannot fetch movies: {}'.format(resp.status_code))
+
+        fichero_json = resp.json()
+
+        # Insertar productora en BBDD
+        if 'production_companies' in fichero_json:
+            for compan in fichero_json['production_companies']:
+                miCompania = ProductionCompany(tipo, elemento, compan['id'], compan['name'])
+                miCompania.insertar()
 
 
 def descargaPeliculas(pPagina=1):
@@ -159,3 +228,5 @@ if __name__ == '__main__':
     #descargaGenerosSeries()
     #descargaPeliculas()
     #descargaSeries()
+    descargaProdCompanyPelicula()
+    descargaProdCompanySerie()

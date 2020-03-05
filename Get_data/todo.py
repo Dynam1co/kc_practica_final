@@ -29,12 +29,14 @@ def get_tv_popular(pNumPag=1):
     return requests.get(_url('/tv/popular?api_key=%s&language=en-US&page=%s' % (os.getenv('API_KEY_TMDB'), pNumPag)))
 
 
-def get_detail_movie():
-    pass
+def get_prod_company_movie(pId):
+    load_dotenv()
+    return requests.get(_url('/movie/%s?api_key=%s&language=en-US' % (pId, os.getenv('API_KEY_TMDB'))))
 
 
-def get_detail_tv():
-    pass
+def get_prod_company_tv(pId):
+    load_dotenv()
+    return requests.get(_url('/tv/%s?api_key=%s&language=en-US' % (pId, os.getenv('API_KEY_TMDB'))))
 
 
 def get_external_id_movie():

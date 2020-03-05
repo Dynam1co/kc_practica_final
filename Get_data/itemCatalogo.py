@@ -28,6 +28,33 @@ class ItemCatalogo:
     def insertGenreId(self, pId):
         self.genre_ids.append(pId)
 
+    def getAll(pTipo):
+        listaElementos = []
+
+        connection = None
+
+        try:
+            connection = config.get_connection_by_config()
+
+            cursor = connection.cursor()
+
+            sql = "SELECT id FROM item WHERE type = '%s';" % pTipo
+
+            cursor.execute(sql)
+            record = cursor.fetchall()
+
+            for row in record:
+                listaElementos.append(row[0])
+        except (Exception, psycopg2.Error) as error:
+            print("Error while connecting to PostgreSQL", error)
+        finally:
+            # closing database connection.
+            if(connection):
+                cursor.close()                
+                connection.close()
+
+        return listaElementos
+
     def insertar(self):
         connection = None
 
