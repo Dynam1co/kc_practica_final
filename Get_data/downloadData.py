@@ -23,20 +23,20 @@ def descargaProdCompanyPelicula():
         time.sleep(2)
 
         i += 1
-        print('Elemento:', i, 'de:', totalElementos)
+        print('Película:', i, 'de:', totalElementos)
 
         resp = todo.get_prod_company_movie(elemento)
 
         if resp.status_code != 200:
-            raise Exception('Cannot fetch movies: {}'.format(resp.status_code))
+            print('Error al descargar. Error:', resp.status_code)
+        else:            
+            fichero_json = resp.json()
 
-        fichero_json = resp.json()
-
-        # Insertar productora en BBDD
-        if 'production_companies' in fichero_json:
-            for compan in fichero_json['production_companies']:
-                miCompania = ProductionCompany(tipo, elemento, compan['id'], compan['name'])
-                miCompania.insertar()
+            # Insertar productora en BBDD
+            if 'production_companies' in fichero_json:
+                for compan in fichero_json['production_companies']:
+                    miCompania = ProductionCompany(tipo, elemento, compan['id'], compan['name'])
+                    miCompania.insertar()
 
 
 def descargaProdCompanySerie():
@@ -57,20 +57,20 @@ def descargaProdCompanySerie():
         time.sleep(2)
 
         i += 1
-        print('Elemento:', i, 'de:', totalElementos)
+        print('Serie:', i, 'de:', totalElementos)
 
         resp = todo.get_prod_company_tv(elemento)
 
         if resp.status_code != 200:
-            raise Exception('Cannot fetch movies: {}'.format(resp.status_code))
+            print('Error al descargar. Error:', resp.status_code)
+        else:
+            fichero_json = resp.json()
 
-        fichero_json = resp.json()
-
-        # Insertar productora en BBDD
-        if 'production_companies' in fichero_json:
-            for compan in fichero_json['production_companies']:
-                miCompania = ProductionCompany(tipo, elemento, compan['id'], compan['name'])
-                miCompania.insertar()
+            # Insertar productora en BBDD
+            if 'production_companies' in fichero_json:
+                for compan in fichero_json['production_companies']:
+                    miCompania = ProductionCompany(tipo, elemento, compan['id'], compan['name'])
+                    miCompania.insertar()
 
 
 def descargaPeliculas(pPagina=1):
@@ -229,4 +229,4 @@ if __name__ == '__main__':
     #descargaPeliculas()
     #descargaSeries()
     descargaProdCompanyPelicula()
-    descargaProdCompanySerie()
+    #descargaProdCompanySerie()

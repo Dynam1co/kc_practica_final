@@ -37,10 +37,16 @@ class ItemCatalogo:
             connection = config.get_connection_by_config()
 
             cursor = connection.cursor()
+            
+            sql = """
+                    select id from item itm where 
+                        not exists(select * from item_production_companies pc where pc.type = itm.type AND pc.iditem = itm.id) 
+                        AND type = '%s';
+                """
+            
+            data = (pTipo)
 
-            sql = "SELECT id FROM item WHERE type = '%s';" % pTipo
-
-            cursor.execute(sql)
+            cursor.execute(sql, data)
             record = cursor.fetchall()
 
             for row in record:
