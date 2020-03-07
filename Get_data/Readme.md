@@ -19,3 +19,8 @@ Dentro de esta carpeta (Get_data) se encuentran los siguientes ficheros:
 - [**genero.py**](genero.py): Es una clase con los atributos de géneros de películas y un método para insertar dichos métodos en la base de datos.
 - [**itemCatalogo.py**](itemCatalogo.py): Es la clase de la película/serie. Contiene los atributos y un método para insertar en la base de datos.
 - [**todo.py**](todo.py): Este archivo contiene funciones que devuelven la url de cada método de la API.
+- [**prodCompany.py**](prodCompany.py): Descarga las productoras de cada serie o película. Al no tener un método en la API para descargar las productoras, he hecho una query en SQL para obtener las productoras únicas:
+```
+insert into production_companies (id, name)
+    select distinct id, name from item_production_companies group by id, name;
+```
