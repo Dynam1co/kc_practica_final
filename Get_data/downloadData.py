@@ -2,7 +2,98 @@ import todo
 from itemCatalogo import ItemCatalogo
 from genero import Genero
 from prodCompany import ProductionCompany
+from actor import Actor
 import time
+
+
+def descargaCreditsPelicula():
+    print('Descargando créditos películas')
+    print('------------------------------------------')
+    print('')
+
+    tipo = 'Movie'
+
+    # Obtener todas las películas de la BBDD Postgre
+    listaElementos = ItemCatalogo.getAll(tipo, False, True)
+    i = 0
+    totalElementos = len(listaElementos)
+
+    # Por cada película obtengo sus créditos atacando a la API
+    for elemento in listaElementos:
+        time.sleep(2)
+
+        i += 1
+        print('Película:', i, 'de:', totalElementos)
+
+        resp = todo.get_credits_movie(elemento)
+
+        if resp.status_code != 200:
+            print('Error al descargar. Error:', resp.status_code)
+        else:
+            fichero_json = resp.json()
+
+            if 'cast' in fichero_json:
+                for actor in fichero_json['cast']:
+                    idActor = None
+                    nombreActor = None
+                    generoActor = None
+
+                    if 'id' in actor:
+                        idActor = actor['id']
+
+                    if 'name' in actor:
+                        nombreActor = actor['name']
+
+                    if 'gender' in actor:
+                        generoActor = actor['gender']
+
+                    miActor = Actor(tipo, idActor, nombreActor, generoActor, elemento)
+                    miActor.insertar()
+
+
+def descargaCreditsSerie():
+    print('Descargando créditos series')
+    print('------------------------------------------')
+    print('')
+
+    tipo = 'TV'
+
+    # Obtener todas las películas de la BBDD Postgre
+    listaElementos = ItemCatalogo.getAll(tipo, False, True)
+    i = 0
+    totalElementos = len(listaElementos)
+
+    # Por cada serie obtengo sus créditos atacando a la API
+    for elemento in listaElementos:
+        time.sleep(2)
+
+        i += 1
+        print('Serie:', i, 'de:', totalElementos)
+
+        resp = todo.get_credits_tv(elemento)
+
+        if resp.status_code != 200:
+            print('Error al descargar. Error:', resp.status_code)
+        else:
+            fichero_json = resp.json()
+
+            if 'cast' in fichero_json:
+                for actor in fichero_json['cast']:
+                    idActor = None
+                    nombreActor = None
+                    generoActor = None
+
+                    if 'id' in actor:
+                        idActor = actor['id']
+
+                    if 'name' in actor:
+                        nombreActor = actor['name']
+
+                    if 'gender' in actor:
+                        generoActor = actor['gender']
+
+                    miActor = Actor(tipo, idActor, nombreActor, generoActor, elemento)
+                    miActor.insertar()
 
 
 def descargaProdCompanyPelicula():
@@ -14,7 +105,7 @@ def descargaProdCompanyPelicula():
     tipo = 'Movie'
 
     # Obtener todas las películas de la BBDD Postgre
-    listaElementos = ItemCatalogo.getAll(tipo)
+    listaElementos = ItemCatalogo.getAll(tipo, True, False)
     i = 0
     totalElementos = len(listaElementos)
 
@@ -29,7 +120,7 @@ def descargaProdCompanyPelicula():
 
         if resp.status_code != 200:
             print('Error al descargar. Error:', resp.status_code)
-        else:            
+        else:
             fichero_json = resp.json()
 
             # Insertar productora en BBDD
@@ -48,7 +139,7 @@ def descargaProdCompanySerie():
     tipo = 'TV'
 
     # Obtener todas las películas de la BBDD Postgre
-    listaElementos = ItemCatalogo.getAll(tipo)
+    listaElementos = ItemCatalogo.getAll(tipo, True, False)
     i = 0
     totalElementos = len(listaElementos)
 
@@ -223,10 +314,12 @@ def descargaGenerosSeries():
         miGenero.insertar()
 
 
-if __name__ == '__main__':    
-    #descargaGenerosPeliculas()
-    #descargaGenerosSeries()
-    #descargaPeliculas()
-    #descargaSeries()
-    descargaProdCompanyPelicula()
-    #descargaProdCompanySerie()
+if __name__ == '__main__':
+    # descargaGenerosPeliculas()
+    # descargaGenerosSeries()
+    # descargaPeliculas()
+    # descargaSeries()
+    # descargaProdCompanyPelicula()
+    # descargaProdCompanySerie()
+    descargaCreditsPelicula()
+    descargaCreditsSerie()

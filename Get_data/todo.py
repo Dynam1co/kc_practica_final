@@ -39,20 +39,24 @@ def get_prod_company_tv(pId):
     return requests.get(_url('/tv/%s?api_key=%s&language=en-US' % (pId, os.getenv('API_KEY_TMDB'))))
 
 
-def get_external_id_movie():
-    pass
+def get_external_id_movie(pId):
+    load_dotenv()
+    return requests.get(_url('/movie/%s/external_ids?api_key=%s' % (pId, os.getenv('API_KEY_TMDB'))))
 
 
-def get_external_id_tv():
-    pass
+def get_external_id_tv(pId):
+    load_dotenv()
+    return requests.get(_url('/tv/%s/external_ids?api_key=%s' % (pId, os.getenv('API_KEY_TMDB'))))
 
 
-def get_credits_movie():
-    pass
+def get_credits_movie(pId):
+    load_dotenv()
+    return requests.get(_url('/movie/%s/credits?api_key=%s&language=en-US' % (pId, os.getenv('API_KEY_TMDB'))))
 
 
-def get_credits_tv():
-    pass
+def get_credits_tv(pId):
+    load_dotenv()
+    return requests.get(_url('/tv/%s/credits?api_key=%s&language=en-US' % (pId, os.getenv('API_KEY_TMDB'))))
 
 
 def get_images_movie():

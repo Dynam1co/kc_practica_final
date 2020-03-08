@@ -28,7 +28,7 @@ class ItemCatalogo:
     def insertGenreId(self, pId):
         self.genre_ids.append(pId)
 
-    def getAll(pTipo):
+    def getAll(pTipo, pProdCompany, pCast):
         listaElementos = []
 
         connection = None
@@ -38,15 +38,24 @@ class ItemCatalogo:
 
             cursor = connection.cursor()
             
-            sql = """
-                    select id from item itm where 
-                        not exists(select * from item_production_companies pc where pc.type = itm.type AND pc.iditem = itm.id) 
-                        AND type = '%s';
-                """
+            if pProdCompany:
+                sql = """
+                        select id from item itm where 
+                            not exists(select * from item_production_companies pc where pc.type = itm.type AND pc.iditem = itm.id) 
+                            AND type = '%s';
+                    """ % pTipo
+            elif pCast:
+                sql = """                    
+                        select id from item itm where 
+                            not exists(select * from item_caracter pc where pc.type = itm.type AND pc.idItem = itm.id) 
+                            AND type = '%s';
+                    """ % pTipo
+            else:
+                sql = """
+                        select id from item where type = '%s';
+                    """ % pTipo
             
-            data = (pTipo)
-
-            cursor.execute(sql, data)
+            cursor.execute(sql)
             record = cursor.fetchall()
 
             for row in record:
