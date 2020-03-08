@@ -59,6 +59,11 @@ def get_credits_tv(pId):
     return requests.get(_url('/tv/%s/credits?api_key=%s&language=en-US' % (pId, os.getenv('API_KEY_TMDB'))))
 
 
+def get_budget_movie(pId):
+    load_dotenv()
+    return requests.get(_url('/movie/%s?api_key=%s&language=en-US' % (pId, os.getenv('API_KEY_TMDB'))))
+
+
 def get_images_movie():
     pass
 
