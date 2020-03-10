@@ -6,6 +6,38 @@ from actor import Actor
 import time
 
 
+def descargaIdExternoPelicula():
+    print('Descargando id IMDb películas')
+    print('------------------------------------------')
+    print('')
+
+    tipo = 'Movie'
+
+    # Obtener todas las películas de la BBDD Postgre
+    listaElementos = ItemCatalogo.getAll(tipo, False, False)
+    i = 0
+    totalElementos = len(listaElementos)
+
+    # Por cada película obtengo id externo atacando a la API
+    for elemento in listaElementos:
+        time.sleep(2)
+
+        i += 1
+        print('Película:', i, 'de:', totalElementos)
+
+        resp = todo.get_external_id_movie(elemento)
+
+        if resp.status_code != 200:
+            print('Error al descargar. Error:', resp.status_code)
+        else:
+            fichero_json = resp.json()
+
+            if 'imdb_id' in fichero_json:
+                imdbId = fichero_json['imdb_id']
+
+                ItemCatalogo.actualizaIdExterno(tipo, elemento, imdbId)
+
+
 def descargaPresupuestoPelicula():
     print('Descargando presupuesto películas')
     print('------------------------------------------')
@@ -18,7 +50,7 @@ def descargaPresupuestoPelicula():
     i = 0
     totalElementos = len(listaElementos)
 
-    # Por cada película obtengo sus créditos atacando a la API
+    # Por cada película obtengo su presupuesto atacando a la API
     for elemento in listaElementos:
         time.sleep(2)
 
@@ -355,5 +387,6 @@ if __name__ == '__main__':
     # descargaProdCompanySerie()
     # descargaCreditsPelicula()
     # descargaCreditsSerie()
-    descargaPresupuestoPelicula()
+    # descargaPresupuestoPelicula()
+    descargaIdExternoPelicula()
 

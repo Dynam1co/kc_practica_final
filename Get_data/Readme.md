@@ -13,6 +13,9 @@ Ya que la api key para la api de TMDb es personal, he usado la librería **doten
 API_KEY_TMDB=abcerkd73847
 ```
 
+## Anotación importante sobre la ingesta 📌
+Viendo que se encuentran más datos de películas que de series y que no sería correcto mezclar en el mismo modelo las dos partes, decido centrarme solo en las películas, por lo que el dataset general con la unión de datos de todas las tablas se hará solo de las películas al igual que la obtención del id de IMDb y del presupuesto.
+
 ## Descarga de items e inserción en la base de datos ⚙️
 Dentro de esta carpeta (Get_data) se encuentran los siguientes ficheros:
 - [**downloadData.py**](downloadData.py): Este fichero es el principal, el que inicia la descarga de todos los datos necesarios. Al tener una función "main" solo habría que ejecutar este fichero de la siguiente forma: ```python downloadData.py``` En la consola veremos en cada momento qué se está descargando.

@@ -25,6 +25,7 @@ class ItemCatalogo:
         self.overview = pOverview
         self.release_date = pReleaseDate
         self.budget = None
+        self.extId = None
 
     def insertGenreId(self, pId):
         self.genre_ids.append(pId)
@@ -70,6 +71,28 @@ class ItemCatalogo:
                 connection.close()
 
         return listaElementos
+
+    def actualizaIdExterno(pTipo, pId, pIdExterno):
+        connection = None
+
+        try:
+            connection = config.get_connection_by_config()
+
+            cursor = connection.cursor()
+
+            sql = "UPDATE item SET imdbId = %s WHERE type = %s AND id = %s;"                
+
+            data = (pIdExterno, pTipo, pId)
+
+            cursor.execute(sql, data)
+        except (Exception, psycopg2.Error) as error:
+            print("Error while connecting to PostgreSQL", error)
+        finally:
+            # closing database connection.
+            if(connection):
+                cursor.close()
+                connection.commit()
+                connection.close()
 
     def actualizaPresupuesto(pTipo, pId, pPresupuesto):
         connection = None
