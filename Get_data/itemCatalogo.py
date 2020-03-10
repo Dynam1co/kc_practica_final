@@ -80,7 +80,7 @@ class ItemCatalogo:
 
             cursor = connection.cursor()
 
-            sql = "UPDATE item SET imdbId = %s WHERE type = %s AND id = %s;"                
+            sql = "UPDATE item SET imdb_id = %s WHERE type = %s AND id = %s;"                
 
             data = (pIdExterno, pTipo, pId)
 
