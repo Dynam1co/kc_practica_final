@@ -66,7 +66,7 @@ class ImdbSpider(scrapy.Spider):
                 budget = budget.replace(',', '')
 
             intBudget = int(budget)
-            ItemCatalogo.actualizaPresupuestoImdb('Movie', intBudget, idImdb)
+            ItemCatalogo.actualizaPresupuestoImdb('Movie', idImdb, intBudget)
             print('PRESUPUESTO:', intBudget, 'IMDb id:', idImdb)
         else:
             print('No encontrado presupuesto:', idImdb)
