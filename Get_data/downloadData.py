@@ -388,5 +388,6 @@ if __name__ == '__main__':
     # descargaCreditsPelicula()
     # descargaCreditsSerie()
     # descargaPresupuestoPelicula()
-    descargaIdExternoPelicula()
+    # descargaIdExternoPelicula()
+    print('hola')
 
