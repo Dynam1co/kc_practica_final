@@ -38,7 +38,7 @@ class ItemCatalogo:
 
             sql = """
                     SELECT 'https://www.imdb.com/title/' || imdb_id as url_imdb 
-                    FROM item where type = 'Movie' and budget = 0 and imdb_id is not null limit 3;
+                    FROM item where type = 'Movie' and budget = 0 and imdb_id is not null;
                 """
 
             cursor.execute(sql)
