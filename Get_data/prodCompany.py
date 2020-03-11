@@ -1,9 +1,5 @@
 import psycopg2
-import sys
-from dotenv import load_dotenv
-
-sys.path.insert(1, "./DDBB/")
-import config
+from DDBB import config
 
 
 class ProductionCompany:

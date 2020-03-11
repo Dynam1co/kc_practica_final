@@ -1,9 +1,5 @@
 import psycopg2
-import sys
-from dotenv import load_dotenv
-
-sys.path.insert(1, "./DDBB/")
-import config
+from DDBB import config
 
 
 class ItemCatalogo:
@@ -42,7 +38,7 @@ class ItemCatalogo:
 
             sql = """
                     SELECT 'https://www.imdb.com/title/' || imdb_id as url_imdb 
-                    FROM item where type = 'Movie' and budget = 0 and imdb_id is not null;
+                    FROM item where type = 'Movie' and budget = 0 and imdb_id is not null limit 3;
                 """
 
             cursor.execute(sql)
@@ -135,6 +131,28 @@ class ItemCatalogo:
             sql = "UPDATE item SET budget = %s WHERE type = %s AND id = %s;"                
 
             data = (pPresupuesto, pTipo, pId)
+
+            cursor.execute(sql, data)
+        except (Exception, psycopg2.Error) as error:
+            print("Error while connecting to PostgreSQL", error)
+        finally:
+            # closing database connection.
+            if(connection):
+                cursor.close()
+                connection.commit()
+                connection.close()
+
+    def actualizaPresupuestoImdb(pTipo, pIdImdb, pPresupuesto):
+        connection = None
+
+        try:
+            connection = config.get_connection_by_config()
+
+            cursor = connection.cursor()
+
+            sql = "UPDATE item SET budget = %s WHERE type = %s AND imdb_id = %s;"
+
+            data = (pPresupuesto, pTipo, pIdImdb)
 
             cursor.execute(sql, data)
         except (Exception, psycopg2.Error) as error:
