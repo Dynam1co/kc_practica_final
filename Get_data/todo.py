@@ -1,10 +1,17 @@
 import requests
 from dotenv import load_dotenv
 import os
+import urllib.request
+from os.path import join
+import numpy as np
 
 
 def _url(path):
     return 'https://api.themoviedb.org/3' + path
+
+
+def _image_url(path):
+    return 'https://image.tmdb.org/t/p/original' + path
 
 
 def get_genres_movies():
@@ -64,9 +71,15 @@ def get_budget_movie(pId):
     return requests.get(_url('/movie/%s?api_key=%s&language=en-US' % (pId, os.getenv('API_KEY_TMDB'))))
 
 
-def get_images_movie():
-    pass
+def download_image(pIdElemento, pUrl):
+    rutaImagen = '..\img'
 
+    try:
+        filename = '{}.jpg'.format(pIdElemento)
+        full_path = join(rutaImagen, filename)
 
-def get_images_tv():
-    pass
+        urllib.request.urlretrieve(_image_url(pUrl), full_path)
+
+        return full_path
+    except Exception as e:
+        return np.nan

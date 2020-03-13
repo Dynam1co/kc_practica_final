@@ -6,6 +6,29 @@ from actor import Actor
 import time
 
 
+def descarga_imagenes_pelicula():
+    print('Descargando imágenes de películas')
+    print('------------------------------------------')
+    print('')
+
+    tipo = 'Movie'
+    item = ItemCatalogo(None, None, None, None, None, None, None, None, None, None, None, None, None)
+
+    lista_elementos = item.get_poster_url(tipo)
+    i = 0
+    total_elementos = len(lista_elementos)
+
+    for elemento in lista_elementos:
+        i += 1
+        print('Película:', i, 'de:', total_elementos)
+
+        elemento.local_poster_path = todo.download_image(elemento.id, elemento.poster_path)
+        elemento.actualiza_ruta_imagen_local()
+
+        print(elemento.local_poster_path)
+
+
+
 def descargaIdExternoPelicula():
     print('Descargando id IMDb películas')
     print('------------------------------------------')
@@ -389,5 +412,5 @@ if __name__ == '__main__':
     # descargaCreditsSerie()
     # descargaPresupuestoPelicula()
     # descargaIdExternoPelicula()
-    print('hola')
+    descarga_imagenes_pelicula()
 

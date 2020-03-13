@@ -22,6 +22,7 @@ class ItemCatalogo:
         self.release_date = pReleaseDate
         self.budget = None
         self.extId = None
+        self.local_poster_path = None
 
     def insertGenreId(self, pId):
         self.genre_ids.append(pId)
@@ -55,6 +56,39 @@ class ItemCatalogo:
                 connection.close()
 
         return listaElementos
+
+    def get_poster_url(self, pTipo):
+        lista_elementos = []
+
+        connection = None
+
+        try:
+            connection = config.get_connection_by_config()
+
+            cursor = connection.cursor()
+
+            sql = "SELECT id, poster_path FROM item where type = '%s' and poster_path is not null limit 5;" % pTipo
+
+            cursor.execute(sql)
+            record = cursor.fetchall()
+
+            for row in record:
+                itm = ItemCatalogo(None, None, None, None, None, None, None, None, None, None, None, None, None)
+
+                itm.id = row[0]
+                itm.poster_path = row[1]
+                itm.tipo = pTipo
+
+                lista_elementos.append(itm)
+        except (Exception, psycopg2.Error) as error:
+            print("Error while connecting to PostgreSQL", error)
+        finally:
+            # closing database connection.
+            if (connection):
+                cursor.close()
+                connection.close()
+
+        return lista_elementos
 
     def getAll(pTipo, pProdCompany, pCast):
         listaElementos = []
@@ -97,6 +131,28 @@ class ItemCatalogo:
                 connection.close()
 
         return listaElementos
+
+    def actualiza_ruta_imagen_local(self):
+        connection = None
+
+        try:
+            connection = config.get_connection_by_config()
+
+            cursor = connection.cursor()
+
+            sql = "UPDATE item SET local_poster_path = %s WHERE type = %s AND id = %s;"
+
+            data = (self.local_poster_path, self.tipo, self.id)
+
+            cursor.execute(sql, data)
+        except (Exception, psycopg2.Error) as error:
+            print("Error while connecting to PostgreSQL", error)
+        finally:
+            # closing database connection.
+            if (connection):
+                cursor.close()
+                connection.commit()
+                connection.close()
 
     def actualizaIdExterno(pTipo, pId, pIdExterno):
         connection = None
