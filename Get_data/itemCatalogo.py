@@ -67,7 +67,7 @@ class ItemCatalogo:
 
             cursor = connection.cursor()
 
-            sql = "SELECT id, poster_path FROM item where type = '%s' and poster_path is not null limit 5;" % pTipo
+            sql = "SELECT id, poster_path FROM item where type = '%s' and poster_path is not null;" % pTipo
 
             cursor.execute(sql)
             record = cursor.fetchall()
