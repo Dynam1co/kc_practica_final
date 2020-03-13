@@ -21,6 +21,13 @@ Viendo que se encuentran más datos de películas que de series y que no sería 
 ## Scrapeo de la variable presupuesto 🕵️
 En la API de TMDb está la variable presupuesto, pero 4000 de las 10000 películas no tenían ese valor relleno, por lo que se decide obtener una nueva variable de la API, el **Id de IMDb** con ese dato y haciendo uso de las librerías **Scrapy** y **Requests** obtenemos el valor de la variable presupuesto de las películas que podamos scrapeando directamente la web de IMDb.
 
+## Descarga de imágenes 🖼️
+Desde el fichero [**downloadData.py**](downloadData.py) también se descargan las imágenes de las películas a una carpeta del proyecto llamada **img** por cuestiones de tamaño y copyright las imágenes no están subidas al repositorio.
+
+He decidido descargar las imágenes del poster de la película en lugar de las capturas de algún frame porque había menos nulos en esa columna.
+
+Las imágenes se redimensionarán porque son muy grandes.
+
 ## Descarga de items e inserción en la base de datos ⚙️
 Dentro de esta carpeta (Get_data) se encuentran los siguientes ficheros:
 - [**downloadData.py**](downloadData.py): Este fichero es el principal, el que inicia la descarga de todos los datos necesarios. Al tener una función "main" solo habría que ejecutar este fichero de la siguiente forma: ```python downloadData.py``` En la consola veremos en cada momento qué se está descargando.
