@@ -18,7 +18,7 @@ La idea final del proyecto es poder predecir el éxito que pueda tener una posib
 
 Los pasos a seguir serán:
 - Creación del servidor de base de datos dockerizado con motor Postgre SQL. 📝 [Instrucciones](DDBB)
-- Creación de las tablas en Postgre SQL.
+- Creación de las tablas en Postgre SQL. 📝 [Instrucciones](DDBB/DB_Creation.md)
 - Obtención de datos atacando a la API Rest pública de [TMDb](https://www.themoviedb.org/documentation/api?language=es) y scrapeando la web de [IMDb](https://www.imdb.com/?ref_=nv_home) usando Python. 📝 [Instrucciones](Get_data)
 
 ## Herramientas usadas 🔧
