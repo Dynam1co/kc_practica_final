@@ -23,6 +23,13 @@ postgres@7ef98b1b7243:/$ psql -h $PG_PORT_5432_TCP_ADDR -p $PG_PORT_5432_TCP_POR
 ```
 Nos pedirá la contraseña que especificamos en el Dockerfile cuando creamos el usuario de BBDD y ya estaríamos dentro del cliente de Postgres.
 
+## Diagrama base de datos y scripts creación 🗄️
+Una vez montado el contenedor con el entorno Postgre SQL solo tendríamos que crear las tablas necesarias en la misma base de datos que se creó en el Dockerfile.
+### Diagrama
+![Diagrama SQL](Diagram_DDBB.png)
+### Script creación BBDD
+Aquí esta el script de creación de las tablas [Script](script.sql)
+
 ## Notas adicionales 💡
 Para salir del cliente de Postgres tecleamos:
 ```
