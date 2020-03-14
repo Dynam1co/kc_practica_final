@@ -14,12 +14,13 @@ Todos los Docker 🐳 usados han sido de tipo Linux.
 La base de datos seleccionada será [Postgre SQL](https://www.postgresql.org/) en ella se guardarán los datos scrapeados en tablas relacionales y una vez obtenidos se generará un único dataset.
 
 ## Comenzando 🚀
-La idea final del proyecto es poder predecir el éxito que pueda tener una posible película o serie en el mercado americano. Partiremos de un dataset etiquetado que escrapearemos también en este proyecto.
+La idea final del proyecto es poder predecir el éxito que pueda tener una posible película o serie en el mercado americano. Partiremos de un dataset etiquetado que generaremos nosotros mismos leyendo datos de una API y escrapeando de una conocida web de películas.
 
 Los pasos a seguir serán:
-- Creación del servidor de base de datos dockerizado con motor Postgre SQL. 📝 [Instrucciones](DDBB)
-- Creación de las tablas en Postgre SQL. 📝 [Instrucciones](DDBB)
-- Obtención de datos atacando a la API Rest pública de [TMDb](https://www.themoviedb.org/documentation/api?language=es) y scrapeando la web de [IMDb](https://www.imdb.com/?ref_=nv_home) usando Python. 📝 [Instrucciones](Get_data)
+1. Creación del servidor de base de datos dockerizado con motor Postgre SQL. 📝 [Instrucciones](DDBB)
+2. Creación de las tablas en Postgre SQL. 📝 [Instrucciones](DDBB)
+3. Obtención de datos atacando a la API Rest pública de [TMDb](https://www.themoviedb.org/documentation/api?language=es) y scrapeando la web de [IMDb](https://www.imdb.com/?ref_=nv_home) usando Python. 📝 [Instrucciones](Get_data)
+4. Generar dataset final a partir de los datos obtenidos 📝 [Instrucciones](dataset_creation)
 
 ## Herramientas usadas 🔧
 Estas son las herramientas usadas durante el desarrollo del proyecto:
