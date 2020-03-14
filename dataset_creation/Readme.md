@@ -66,6 +66,12 @@ El resultado de la consulta nos da:
 
 Por lo que generaremos 28 columnas para los actores.
 
+En la tabla de actores también tenemos el género, un número entero que va de 0 a 3, aunque según la API el número máximo es 2, viendo los datos, esos actores son solo 5 de 119043 registros:
+
+![Generos](img/5_contador_generos.PNG)
+
+Para los géneros, también crearemos 28 columnas, para poder especificar el género de cada uno de los actores.
+
 ## Géneros 📽
 Para los géneros, hacemos lo mismo que con los actores, comprobamos primero si el número de géneros por película está estandarizado:
 ```
