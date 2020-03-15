@@ -30,6 +30,15 @@ Estas son las herramientas usadas durante el desarrollo del proyecto:
 - [Postgre SQL](https://www.postgresql.org/): Como motor de bases de datos.
 - [Data Grip](https://www.jetbrains.com/datagrip/?gclid=Cj0KCQiAwP3yBRCkARIsAABGiPp9LUgvaKBbgjd69efrNyAz1KU7Lyoab6hKzCIaSgV2ujDK3i7m5AEaAh6UEALw_wcB): Como IDE de Sql.
 
+## Librerías Python usadas 🛠️
+- **psycopg2**: Python-PostgreSQL Database Adapter [Fuente](https://pypi.org/project/psycopg2/)
+- **dotenv**: Reads the key-value pair from .env file and adds them to environment variable. It is great for managing app settings during development and in production using 12-factor principles. [Fuente](https://pypi.org/project/python-dotenv/)
+- **request**: Request library is the de facto standard for making HTTP requests in Python. [Fuente](https://realpython.com/python-requests/)
+- **time**: Para no hacer muchas llamadas seguidas a la API.
+- **Scrapy**: Para scrapear la variable presupuesto de la web IMDb.
+- **urllib**: Para descarga de imágenes de películas
+- **pandas**: Para análisis y manipulación de datos. [Fuente](https://pandas.pydata.org/)
+
 ## Expresiones de Gratitud 🎁
 
 * Comenta a otros sobre este proyecto 📢

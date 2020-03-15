@@ -43,3 +43,4 @@ nodeLanguageServer.*/**
 .vscode
 .env
 img/*
+datasets/*
