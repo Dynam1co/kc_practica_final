@@ -402,15 +402,15 @@ def descargaGenerosSeries():
 
 
 if __name__ == '__main__':
-    # descargaGenerosPeliculas()
-    # descargaGenerosSeries()
-    # descargaPeliculas()
-    # descargaSeries()
-    # descargaProdCompanyPelicula()
-    # descargaProdCompanySerie()
-    # descargaCreditsPelicula()
-    # descargaCreditsSerie()
-    # descargaPresupuestoPelicula()
-    # descargaIdExternoPelicula()
+    descargaGenerosPeliculas()
+    descargaGenerosSeries()
+    descargaPeliculas()
+    descargaSeries()
+    descargaProdCompanyPelicula()
+    descargaProdCompanySerie()
+    descargaCreditsPelicula()
+    descargaCreditsSerie()
+    descargaPresupuestoPelicula()
+    descargaIdExternoPelicula()
     descarga_imagenes_pelicula()
 

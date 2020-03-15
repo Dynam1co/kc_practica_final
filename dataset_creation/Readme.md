@@ -309,5 +309,10 @@ alter table dataset_final
 ## Rellenar los nuevos campos 🖊
 Para rellenar los nuevos campos vamos a usar un script en Python porque facilita más el hacer condiciones y bucles con los datos.
 
+El script es este [Actualizar nuevas columnas](insert_new_columns.py) y lo podemos ejecutar de la siguiente forma:
+```
+python insert_new_columns.py
+```
+
 ## Aclaración 💡
 No podemos tratar los actores, géneros o productoras como variables categóricas y hacer un One-Hot Encoding porque tenemos varios miles de registros por cada una de esas tres tablas, acabaríamos con un dataset con miles de columnas inutilizable.
