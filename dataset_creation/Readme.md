@@ -313,6 +313,11 @@ El script es este [Actualizar nuevas columnas](insert_new_columns.py) y lo podem
 ```
 python insert_new_columns.py
 ```
+Después de la ejecución del proceso ya tendremos nuestros datos en las nuevas columnas:
+
+![Dataset final](img/6_dataset_final.PNG)
+
+Ahora exportamos nuestro dataset a un csv y lo guardamos en la carpeta [carpeta](../datasets) por cuestiones de tamaño y copiright el dataset final no se incluye en el repositorio.
 
 ## Aclaración 💡
 No podemos tratar los actores, géneros o productoras como variables categóricas y hacer un One-Hot Encoding porque tenemos varios miles de registros por cada una de esas tres tablas, acabaríamos con un dataset con miles de columnas inutilizable.
