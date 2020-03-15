@@ -21,7 +21,7 @@ SELECT * INTO table dataset_final FROM item WHERE type = 'Movie';
 ```
 
 ## Actores 🎭
-Vamos a contar cuántos actores/actrices aparecen en cada película y generaremos tantas columnas en nuestro dataset como resultados nos de ese cálculo, las columnas serían (actor1, actor2, ... actorN) y para cada registro de la tabla principal pondremos sus N actores en esas nuevas columnas (ya tenemos un núero que identifica a cada actor).
+Vamos a contar cuántos actores/actrices aparecen en cada película y generaremos tantas columnas en nuestro dataset como resultados nos de ese cálculo, las columnas serían (actor1, actor2, ... actorN) y para cada registro de la tabla principal pondremos sus N actores en esas nuevas columnas.
 ```
 -- Contamos la suma de actores que participan en una película y observamos el total de películas por cada suma de actores
 SELECT totPerso, COUNT(totPerso) suma FROM
@@ -66,11 +66,11 @@ El resultado de la consulta nos da:
 
 Por lo que generaremos 28 columnas para los actores.
 
-En la tabla de actores también tenemos el género, un número entero que va de 0 a 3, aunque según la API el número máximo es 2, viendo los datos, esos actores son solo 5 de 119043 registros:
+En la tabla de actores también tenemos el género (sexo del actor), un número entero que va de 0 a 3, aunque según la API el número máximo es 2, viendo los datos, esos actores son solo 5 de 119043 registros:
 
 ![Generos](img/5_contador_generos.PNG)
 
-Para los géneros, también crearemos 28 columnas, para poder especificar el género de cada uno de los actores.
+Para los sexos, también crearemos 28 columnas, para poder especificar el sexo de cada uno de los actores.
 
 ## Géneros 📽
 Para los géneros, hacemos lo mismo que con los actores, comprobamos primero si el número de géneros por película está estandarizado:
@@ -97,6 +97,217 @@ La consulta da estos resultados:
 ![Productoras](img/4_distr_productoras.PNG)
 
 Vemos que la media también estaría entre 2 y 3 productoras por película, por lo que generaremos 2 nuevas columnas.
+
+## Scripts creación de campos 📐
+Este sería el script para crear los nuevos campos en la tabla del dataset final:
+```
+/*##################################################################################################################
+                                                INICIO ACTORES
+##################################################################################################################*/
+alter table dataset_final
+	add actor1 varchar;
+
+alter table dataset_final
+	add actor2 varchar;
+
+alter table dataset_final
+	add actor3 varchar;
+
+alter table dataset_final
+	add actor4 varchar;
+
+alter table dataset_final
+	add actor5 varchar;
+
+alter table dataset_final
+	add actor6 varchar;
+
+alter table dataset_final
+	add actor7 varchar;
+
+alter table dataset_final
+	add actor8 varchar;
+
+alter table dataset_final
+	add actor9 varchar;
+
+alter table dataset_final
+	add actor10 varchar;
+
+alter table dataset_final
+	add actor11 varchar;
+
+alter table dataset_final
+	add actor12 varchar;
+
+alter table dataset_final
+	add actor13 varchar;
+
+alter table dataset_final
+	add actor14 varchar;
+
+alter table dataset_final
+	add actor15 varchar;
+
+alter table dataset_final
+	add actor16 varchar;
+
+alter table dataset_final
+	add actor17 varchar;
+
+alter table dataset_final
+	add actor18 varchar;
+
+alter table dataset_final
+	add actor19 varchar;
+
+alter table dataset_final
+	add actor20 varchar;
+
+alter table dataset_final
+	add actor21 varchar;
+
+alter table dataset_final
+	add actor22 varchar;
+
+alter table dataset_final
+	add actor23 varchar;
+
+alter table dataset_final
+	add actor24 varchar;
+
+alter table dataset_final
+	add actor25 varchar;
+
+alter table dataset_final
+	add actor26 varchar;
+
+alter table dataset_final
+	add actor27 varchar;
+
+alter table dataset_final
+	add actor28 varchar;
+/*##################################################################################################################
+                                                FIN ACTORES
+##################################################################################################################*/
+
+/*##################################################################################################################
+                                            INICIO GÉNEROS ACTORES
+##################################################################################################################*/
+alter table dataset_final
+	add genero_actor1 int;
+
+alter table dataset_final
+	add genero_actor2 int;
+
+alter table dataset_final
+	add genero_actor3 int;
+
+alter table dataset_final
+	add genero_actor4 int;
+
+alter table dataset_final
+	add genero_actor5 int;
+
+alter table dataset_final
+	add genero_actor6 int;
+
+alter table dataset_final
+	add genero_actor7 int;
+
+alter table dataset_final
+	add genero_actor8 int;
+
+alter table dataset_final
+	add genero_actor9 int;
+
+alter table dataset_final
+	add genero_actor10 int;
+
+alter table dataset_final
+	add genero_actor11 int;
+
+alter table dataset_final
+	add genero_actor12 int;
+
+alter table dataset_final
+	add genero_actor13 int;
+
+alter table dataset_final
+	add genero_actor14 int;
+
+alter table dataset_final
+	add genero_actor15 int;
+
+alter table dataset_final
+	add genero_actor16 int;
+
+alter table dataset_final
+	add genero_actor17 int;
+
+alter table dataset_final
+	add genero_actor18 int;
+
+alter table dataset_final
+	add genero_actor19 int;
+
+alter table dataset_final
+	add genero_actor20 int;
+
+alter table dataset_final
+	add genero_actor21 int;
+
+alter table dataset_final
+	add genero_actor22 int;
+
+alter table dataset_final
+	add genero_actor23 int;
+
+alter table dataset_final
+	add genero_actor24 int;
+
+alter table dataset_final
+	add genero_actor25 int;
+
+alter table dataset_final
+	add genero_actor26 int;
+
+alter table dataset_final
+	add genero_actor27 int;
+
+alter table dataset_final
+	add genero_actor28 int;
+/*##################################################################################################################
+                                            FIN GÉNEROS ACTORES
+##################################################################################################################*/
+
+/*##################################################################################################################
+                                            INICIO GÉNEROS PELÍCULAS
+##################################################################################################################*/
+alter table dataset_final
+	add genero1 varchar;
+
+alter table dataset_final
+	add genero2 varchar;
+/*##################################################################################################################
+                                            FIN GÉNEROS PELÍCULAS
+##################################################################################################################*/
+
+/*##################################################################################################################
+                                            INICIO PRODUCTORAS
+##################################################################################################################*/
+alter table dataset_final
+	add productora1 varchar;
+
+alter table dataset_final
+	add productora2 varchar;
+/*##################################################################################################################
+                                            FIN PRODUCTORAS
+##################################################################################################################*/
+```
+
+## Rellenar los nuevos campos 🖊
+Para rellenar los nuevos campos vamos a usar un script en Python porque facilita más el hacer condiciones y bucles con los datos.
 
 ## Aclaración 💡
 No podemos tratar los actores, géneros o productoras como variables categóricas y hacer un One-Hot Encoding porque tenemos varios miles de registros por cada una de esas tres tablas, acabaríamos con un dataset con miles de columnas inutilizable.
