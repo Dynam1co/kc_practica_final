@@ -4,6 +4,7 @@ from genero import Genero
 from prodCompany import ProductionCompany
 from actor import Actor
 import time
+import cv2
 
 
 def descarga_imagenes_pelicula():
@@ -401,16 +402,39 @@ def descargaGenerosSeries():
         miGenero.insertar()
 
 
+def redimensiona_imagenes():
+    print('Redimensionando imágenes')
+    print('------------------------------------------')
+    print('')
+
+    listaElementos = ItemCatalogo.get_url_imagen_local()
+    i = 0
+    totalElementos = len(listaElementos)
+    width = 224
+    height = 336
+    dim = (width, height)
+
+    for url in listaElementos:
+        i += 1
+        print('Imagen:', i, 'de:', totalElementos)
+
+        img = cv2.imread(url, cv2.IMREAD_UNCHANGED)
+        resized = cv2.resize(img, dim, interpolation=cv2.INTER_AREA)
+        cv2.imwrite(url, resized)
+
+
+
 if __name__ == '__main__':
-    descargaGenerosPeliculas()
-    descargaGenerosSeries()
-    descargaPeliculas()
-    descargaSeries()
-    descargaProdCompanyPelicula()
-    descargaProdCompanySerie()
-    descargaCreditsPelicula()
-    descargaCreditsSerie()
-    descargaPresupuestoPelicula()
-    descargaIdExternoPelicula()
-    descarga_imagenes_pelicula()
+    # descargaGenerosPeliculas()
+    # descargaGenerosSeries()
+    # descargaPeliculas()
+    # descargaSeries()
+    # descargaProdCompanyPelicula()
+    # descargaProdCompanySerie()
+    # descargaCreditsPelicula()
+    # descargaCreditsSerie()
+    # descargaPresupuestoPelicula()
+    # descargaIdExternoPelicula()
+    # descarga_imagenes_pelicula()
+    redimensiona_imagenes()
 

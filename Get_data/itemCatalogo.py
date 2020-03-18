@@ -27,6 +27,33 @@ class ItemCatalogo:
     def insertGenreId(self, pId):
         self.genre_ids.append(pId)
 
+    def get_url_imagen_local():
+        listaUrl = []
+
+        connection = None
+
+        try:
+            connection = config.get_connection_by_config()
+
+            cursor = connection.cursor()
+
+            sql = "SELECT local_poster_path FROM item WHERE local_poster_path IS NOT NULL limit 1;"
+
+            cursor.execute(sql)
+            record = cursor.fetchall()
+
+            for row in record:
+                listaUrl.append(row[0])
+        except (Exception, psycopg2.Error) as error:
+            print("Error while connecting to PostgreSQL", error)
+        finally:
+            # closing database connection.
+            if (connection):
+                cursor.close()
+                connection.close()
+
+        return listaUrl
+
     def urlsImdb():
         listaElementos = []
 
