@@ -407,6 +407,7 @@ def redimensiona_imagenes():
     print('------------------------------------------')
     print('')
 
+    imagenes_erroneas = []
     listaElementos = ItemCatalogo.get_url_imagen_local()
     i = 0
     totalElementos = len(listaElementos)
@@ -418,10 +419,17 @@ def redimensiona_imagenes():
         i += 1
         print('Imagen:', i, 'de:', totalElementos)
 
-        img = cv2.imread(url, cv2.IMREAD_UNCHANGED)
-        resized = cv2.resize(img, dim, interpolation=cv2.INTER_AREA)
-        cv2.imwrite(url, resized)
+        try:
+            img = cv2.imread(url, cv2.IMREAD_UNCHANGED)
 
+            img_height, img_width, img_channels = img.shape
+
+            if (img_height != height) and (img_width != width):
+                resized = cv2.resize(img, dim, interpolation=cv2.INTER_AREA)
+                cv2.imwrite(url, resized)
+        except cv2.error as e:
+            imagenes_erroneas.append(url)
+            print('Error al abrir imagen', e)
 
 
 if __name__ == '__main__':

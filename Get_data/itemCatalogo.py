@@ -37,7 +37,7 @@ class ItemCatalogo:
 
             cursor = connection.cursor()
 
-            sql = "SELECT local_poster_path FROM item WHERE local_poster_path IS NOT NULL limit 1;"
+            sql = "SELECT local_poster_path FROM item WHERE local_poster_path IS NOT NULL;"
 
             cursor.execute(sql)
             record = cursor.fetchall()
