@@ -18,7 +18,7 @@ Desde el fichero [**downloadData.py**](downloadData.py) también se descargan la
 
 He decidido descargar las imágenes del poster de la película en lugar de las capturas de algún frame porque había menos nulos en esa columna.
 
-Las imágenes se redimensionarán porque son muy grandes.
+Hemos usado el mismo script que hace la descarga de datos para redimensionar las imágenes ya que son muy grandes y además no todas tienen el mismo tamaño. Todas las imágenes se han quedado a 224x336 píxeles.
 
 ## Descarga de items e inserción en la base de datos ⚙️
 Dentro de esta carpeta (Get_data) se encuentran los siguientes ficheros:

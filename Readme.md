@@ -38,6 +38,7 @@ Estas son las herramientas usadas durante el desarrollo del proyecto:
 - **Scrapy**: Para scrapear la variable presupuesto de la web IMDb.
 - **urllib**: Para descarga de imágenes de películas
 - **pandas**: Para análisis y manipulación de datos. [Fuente](https://pandas.pydata.org/)
+- **cv2**: Para el redimensionado de imágenes. [Fuente](https://pypi.org/project/opencv-python/)
 
 ## Expresiones de Gratitud 🎁
 

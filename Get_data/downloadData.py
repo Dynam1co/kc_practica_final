@@ -422,27 +422,40 @@ def redimensiona_imagenes():
         try:
             img = cv2.imread(url, cv2.IMREAD_UNCHANGED)
 
-            img_height, img_width, img_channels = img.shape
+            if img is not None:
+                dim_imagen = img.shape
+                img_height = dim_imagen[0]
+                img_width = dim_imagen[1]
 
-            if (img_height != height) and (img_width != width):
-                resized = cv2.resize(img, dim, interpolation=cv2.INTER_AREA)
-                cv2.imwrite(url, resized)
+                if (img_height != height) and (img_width != width):
+                    resized = cv2.resize(img, dim, interpolation=cv2.INTER_AREA)
+                    cv2.imwrite(url, resized)
+            else:
+                imagenes_erroneas.append(url)
+                print('Error al obtener dimensiones')
         except cv2.error as e:
             imagenes_erroneas.append(url)
             print('Error al abrir imagen', e)
 
+    if len(imagenes_erroneas) != 0:
+        print('Se han encontrado', len(imagenes_erroneas), 'imágenes erróneas:')
+
+        for imag in imagenes_erroneas:
+            print(imag)
+
+
 
 if __name__ == '__main__':
-    # descargaGenerosPeliculas()
-    # descargaGenerosSeries()
-    # descargaPeliculas()
-    # descargaSeries()
-    # descargaProdCompanyPelicula()
-    # descargaProdCompanySerie()
-    # descargaCreditsPelicula()
-    # descargaCreditsSerie()
-    # descargaPresupuestoPelicula()
-    # descargaIdExternoPelicula()
-    # descarga_imagenes_pelicula()
+    descargaGenerosPeliculas()
+    descargaGenerosSeries()
+    descargaPeliculas()
+    descargaSeries()
+    descargaProdCompanyPelicula()
+    descargaProdCompanySerie()
+    descargaCreditsPelicula()
+    descargaCreditsSerie()
+    descargaPresupuestoPelicula()
+    descargaIdExternoPelicula()
+    descarga_imagenes_pelicula()
     redimensiona_imagenes()
 
