@@ -23,7 +23,7 @@ Los pasos a seguir serán:
 4. Generar dataset final a partir de los datos obtenidos 📝 [Instrucciones](dataset_creation)
 5. Limpieza y generación de características 📝 [Instrucciones](limpieza_datos.ipynb)
 6. Predicción:
-6.1 Predicción usando algoritmos de machine learning clásico 📝 [Instrucciones](machine_learning_clasico.ipynb)
+    1. Predicción usando algoritmos de machine learning clásico 📝 [Instrucciones](machine_learning_clasico.ipynb)
 
 ## Herramientas usadas 🔧
 Estas son las herramientas usadas durante el desarrollo del proyecto:
