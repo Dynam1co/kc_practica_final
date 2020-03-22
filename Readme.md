@@ -24,6 +24,7 @@ Los pasos a seguir serán:
 5. Limpieza y generación de características 📝 [Instrucciones](limpieza_datos.ipynb)
 6. Predicción:
     1. Predicción usando algoritmos de machine learning clásico 📝 [Instrucciones](machine_learning_clasico.ipynb)
+    2. Predicción usando algoritmos de deep learning solo datos numéricos 📝 [Instrucciones](deep_learning_datos_numericos.ipynb)
 
 ## Herramientas usadas 🔧
 Estas son las herramientas usadas durante el desarrollo del proyecto:
@@ -41,6 +42,11 @@ Estas son las herramientas usadas durante el desarrollo del proyecto:
 - **urllib**: Para descarga de imágenes de películas
 - **pandas**: Para análisis y manipulación de datos. [Fuente](https://pandas.pydata.org/)
 - **cv2**: Para el redimensionado de imágenes. [Fuente](https://pypi.org/project/opencv-python/)
+- **Numpy**: Para operar a alto nivel con vectores o matrices. [Fuente](https://numpy.org/)
+- **Matplotlib**: Para la generación de gráficos a partir de datos de NumPy. [Fuente](https://matplotlib.org/)
+- **Tensorflow**: Para poder construir y entrenar redes neuronales. [Fuente](https://www.tensorflow.org/)
+- **Keras**: Para facilitar el uso de Tensorflow. [Fuente](https://keras.io/)
+- **Scikit-Learn**: Para funciones de aprendizaje automático. [Fuente](https://scikit-learn.org/stable/)
 
 ## Expresiones de Gratitud 🎁
 
