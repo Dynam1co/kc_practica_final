@@ -26,6 +26,13 @@ Los pasos a seguir serán:
     1. Predicción usando algoritmos de machine learning clásico ![Jupyter](jupyter_logo.png) [Notebook](machine_learning_clasico.ipynb)
     2. Predicción usando algoritmos de deep learning solo datos numéricos ![Jupyter](jupyter_logo.png) [Notebook](deep_learning_datos_numericos.ipynb)
 
+## Resultados 📊
+Se han entrenado varios modelos de Machine Learning y de Deep Learning, estos son los porcentajes de error de cada uno de los modelos:
+- Regresión lineal: 11,59%
+- Lasso: 11,53%
+- Random forest: 11,60%
+- Red neuronal MLP: 12,08%
+
 ## Herramientas usadas 🔧
 Estas son las herramientas usadas durante el desarrollo del proyecto:
 - [Docker](https://www.docker.com/): Para el servidor Postgre SQL.
