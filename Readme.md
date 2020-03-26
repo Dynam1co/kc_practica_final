@@ -25,6 +25,7 @@ Los pasos a seguir serán:
 6. Predicción:
     1. Predicción usando algoritmos de machine learning clásico ![Jupyter](jupyter_logo.png) [Notebook](machine_learning_clasico.ipynb)
     2. Predicción usando algoritmos de deep learning solo datos numéricos ![Jupyter](jupyter_logo.png) [Notebook](deep_learning_datos_numericos.ipynb)
+    3. Predicción usando algoritmos de deep learning cominando datos numéricos (MLP) con imágenes (CNN) ![Jupyter](jupyter_logo.png) [Notebook](deep_learning_combinado.ipynb)
 
 ## Resultados 📊
 Se han entrenado varios modelos de Machine Learning y de Deep Learning, estos son los porcentajes de error de cada uno de los modelos:
