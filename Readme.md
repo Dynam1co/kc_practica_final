@@ -21,7 +21,7 @@ Los pasos a seguir serán:
 2. Creación de las tablas en Postgre SQL. 📝 [Instrucciones](DDBB)
 3. Obtención de datos atacando a la API Rest pública de [TMDb](https://www.themoviedb.org/documentation/api?language=es) y scrapeando la web de [IMDb](https://www.imdb.com/?ref_=nv_home) usando Python. 📝 [Instrucciones](Get_data)
 4. Generar dataset final a partir de los datos obtenidos 📝 [Instrucciones](dataset_creation)
-5. Limpieza y generación de características 📝 [Instrucciones](limpieza_datos.ipynb)
+5. Limpieza y generación de características ![Jupyter](jupyter_logo.png) [Notebook](limpieza_datos.ipynb)
 6. Predicción:
     1. Predicción usando algoritmos de machine learning clásico ![Jupyter](jupyter_logo.png) [Notebook](machine_learning_clasico.ipynb)
     2. Predicción usando algoritmos de deep learning solo datos numéricos ![Jupyter](jupyter_logo.png) [Notebook](deep_learning_datos_numericos.ipynb)
