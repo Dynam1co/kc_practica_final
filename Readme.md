@@ -33,6 +33,7 @@ Se han entrenado varios modelos de Machine Learning y de Deep Learning, estos so
 - Lasso: 11,53%
 - Random forest: 11,60%
 - Red neuronal MLP: 12,08%
+- Red neuronal mixta (MLP + CNN): 11,48%
 
 ## Herramientas usadas 🔧
 Estas son las herramientas usadas durante el desarrollo del proyecto:
