@@ -3,6 +3,9 @@ Toda la práctica ha sido realizada bajo el sistema operativo Windows 10 Pro.
 
 No he hecho despliegue en cloud por los costes y por no poder usar una cuenta gratiuita ya que es necesaria la persistencia de los datos.
 
+## Vídeo presentación 
+[![Alt text](https://img.youtube.com/vi/0AlMB0JoOUw/0.jpg)](https://www.youtube.com/watch?v=0AlMB0JoOUw)
+
 ## Especificaciones del PC 🖥️
 - Procesador: Comet Lake i7-10710U
 - Memoria RAM: DDR IV 32 GB
